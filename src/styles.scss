@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./../node_modules/tailwindcss/dist/tailwind.css";
+
+$accent-color: #ff4081;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:focus {
+  outline: 0 !important;
+}
+
+.angular-editor-textarea {
+  &:focus {
+    outline: $accent-color auto 1px;
+    outline-color: $accent-color;
+    outline-style: auto;
+    outline-width: 1px;
+  }
+}
+ol,
+ul {
+  list-style: inherit;
+  margin: inherit;
+  padding: inherit;
+}
+
+.tooltipCustom {
+  color: white;
+  background-color: $accent-color;
+  font-size: small;
+}
+
+.tooltipCustomMobile {
+  color: white;
+  background-color: $accent-color;
+}
+
+.marginBottomP {
+  margin-bottom: 12px;
+}

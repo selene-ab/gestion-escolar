@@ -1,0 +1,96 @@
+<div class="lg:mx-12">
+  <div>
+    <p class="py-6 font-bold text-lg lg:text-xl">
+      Listado de todos los estudiantes:
+    </p>
+
+    <!-- Tabla con la lista de estudiantes -->
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="list">
+        <!-- id column -->
+        <ng-container matColumnDef="id">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="text-pink-500 lg:text-sm"
+          >
+            ID
+          </th>
+          <td mat-cell *matCellDef="let row" class="text-gray-500">
+            {{ row.id }}
+          </td>
+        </ng-container>
+
+        <!-- name column -->
+        <ng-container matColumnDef="nombre">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="text-pink-500 lg:text-sm"
+          >
+            Nombre
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let row"
+            [routerLink]="['/profesores/alumno/' + row.id]"
+            class="cursor-pointer"
+          >
+            {{ row.first_name }}
+          </td>
+        </ng-container>
+        <!-- surnames column -->
+        <ng-container matColumnDef="apellido">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="text-pink-500 lg:text-sm"
+          >
+            Apellido
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.last_name }}</td>
+        </ng-container>
+
+        <!-- class column -->
+        <ng-container matColumnDef="clase">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="text-pink-500 lg:text-sm"
+          >
+            Clase
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.classroom_name }}</td>
+        </ng-container>
+        <!-- teacher column -->
+        <ng-container matColumnDef="profesor">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="text-pink-500 lg:text-sm"
+          >
+            Profesor
+          </th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.teacher_name }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+      </table>
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        [length]="students.length"
+        [pageSize]="pageSize"
+        (page)="paginatorEvent($event)"
+      >
+      </mat-paginator>
+    </div>
+    <br />
+    <br />
+
+    <app-classroom-lists></app-classroom-lists>
+  </div>
+</div>

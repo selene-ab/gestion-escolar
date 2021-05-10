@@ -1,0 +1,51 @@
+<div class="widget w-full p-4 rounded-lg text-gray-700 md:p-12" *ngIf="task">
+  <p class="text-lg font-semibold">{{ task.name }}</p>
+
+  <p>
+    Fecha de entrega: <span>{{ task.period.start | date: "dd/MM/yy" }}</span> -
+    <span>{{ task.period.end | date: "dd/MM/yy" }}</span>
+  </p>
+  <p class="uppercase font-light text-gray-700">{{ task.subject_name }}</p>
+  <div>
+    <p class="font-medium underline">Descripción:</p>
+    <div [innerHTML]="task.description"></div>
+  </div>
+
+  <!-- Formulario para escribir la respuesta -->
+  <div class="my-6 md:my-10" *ngIf="!task.delivered">
+    <p class="font-semibold mb-6">
+      Haz clic dentro de la caja de texto y escribe tu respuesta.
+    </p>
+    <form [formGroup]="answerForm">
+      <angular-editor
+        formControlName="description"
+        [config]="editorConfig"
+      ></angular-editor>
+
+      <div class="flex justify-end mt-4">
+        <button
+          mat-flat-button
+          color="accent"
+          [disabled]="!answerForm.valid || disableButton"
+          (click)="deliverTask()"
+        >
+          Entregar
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Alerta si no se puede entregar -->
+  <div
+    class="bg-red-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto w-full"
+    *ngIf="error"
+  >
+    <svg viewBox="0 0 24 24" class="text-red-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+      <path
+        fill="currentColor"
+        d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z"
+      ></path>
+    </svg>
+    <span class="text-red-800"> Esta tarea no se puede entregar </span>
+  </div>
+</div>

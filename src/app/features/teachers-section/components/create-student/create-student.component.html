@@ -1,0 +1,129 @@
+<form [formGroup]="createStudentForm" class="lg:mx-10 my-10">
+  <p class="font-medium text-base underline">
+    Formulario para añadir nuevos alumnos:
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Nombre</mat-label>
+      <input matInput type="text" formControlName="firstName" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Apellido</mat-label>
+      <input matInput type="text" formControlName="lastName" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Género</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="1">Masculino</mat-option>
+        <mat-option value="2">Femenino</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Fecha de nacimiento</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        (click)="picker.open()"
+        formControlName="birthDate"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Teléfono</mat-label>
+      <input matInput type="tel" formControlName="phoneNumber" />
+    </mat-form-field>
+  </div>
+
+  <div class="grid grid-cols-1">
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Dirección</mat-label>
+      <input matInput type="text" formControlName="address" />
+    </mat-form-field>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Clase</mat-label>
+      <mat-select formControlName="classroom">
+        <mat-option
+          *ngFor="let classroom of classroomInfo"
+          [value]="classroom.id"
+          >{{ classroom.name }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-0 items-center">
+    <div class="flex md:justify-center">
+      <button
+        mat-flat-button
+        color="primary"
+        type="button"
+        (click)="generatePassword()"
+      >
+        Generar contraseña
+      </button>
+    </div>
+    <mat-form-field
+      appearance="outline"
+      class="full-width"
+      color="accent"
+      class="md:col-span-2"
+    >
+      <mat-label>********************</mat-label>
+      <input matInput type="text" formControlName="random" readonly />
+
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        color="primary"
+        (click)="copyToClipboard()"
+      >
+        <mat-icon>file_copy</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <mat-form-field
+      appearance="outline"
+      class="full-width"
+      color="accent"
+      class="col-span-1"
+    >
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" formControlName="password" />
+    </mat-form-field>
+  </div>
+  <button
+    mat-raised-button
+    type="button"
+    color="accent"
+    (click)="createStudent()"
+    [disabled]="!createStudentForm.valid"
+  >
+    Crear alumno
+  </button>
+</form>
+<div
+  *ngIf="success"
+  class="bg-green-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto w-full"
+>
+  <svg viewBox="0 0 24 24" class="text-green-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+    <path
+      fill="currentColor"
+      d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+    ></path>
+  </svg>
+  <span class="text-green-800"> Alumno creado </span>
+</div>

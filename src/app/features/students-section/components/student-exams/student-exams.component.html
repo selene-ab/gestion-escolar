@@ -1,0 +1,185 @@
+<div class="lg:mx-8 mt-6 md:mt-10 mb-16">
+  <!-- Cards de numero de examenes hechos -->
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:mx-8 mt-8 mb-14">
+    <div
+      class="widget w-full p-4 rounded-lg bg-white border border-gray-300 dark:bg-gray-900 dark:border-gray-800"
+    >
+      <div class="flex flex-row items-center justify-between">
+        <svg
+          id="Capa_1"
+          fill="purple"
+          enable-background="new 0 0 512 512"
+          height="30"
+          viewBox="0 0 512 512"
+          width="30"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              d="m175.5 145h-80c-8.284 0-15 6.716-15 15s6.716 15 15 15h80c8.284 0 15-6.716 15-15s-6.716-15-15-15z"
+            />
+            <path
+              d="m175.5 225h-80c-8.284 0-15 6.716-15 15s6.716 15 15 15h80c8.284 0 15-6.716 15-15s-6.716-15-15-15z"
+            />
+            <path
+              d="m175.5 305h-80c-8.284 0-15 6.716-15 15s6.716 15 15 15h80c8.284 0 15-6.716 15-15s-6.716-15-15-15z"
+            />
+            <path
+              d="m390.5 274.928v-136.948c0-19.77-7.623-38.421-21.465-52.527l-60.862-62.939c-.029-.03-.059-.061-.088-.091-14.013-14.25-33.512-22.423-53.495-22.423h-193.09c-24.813 0-45 20.187-45 45v389c0 24.813 20.187 45 45 45h231.833c21.376 20.433 50.331 33 82.167 33 66.168 0 120-53.383 120-119 0-60.58-45.885-110.729-105-118.072zm-344 159.072v-389c0-8.271 6.729-15 15-15h193.09c11.974 0 23.658 4.891 32.066 13.418l60.851 62.929c.029.03.058.06.086.089 8.323 8.467 12.907 19.669 12.907 31.545v136.962c-58.562 7.398-104 57.521-104 118.058 0 20.233 5.082 39.3 14.027 56h-209.027c-8.271-.001-15-6.73-15-15.001zm329 48c-49.075 0-89-39.925-89-89s39.925-89 89-89c49.626 0 90 39.925 90 89s-40.374 89-90 89z"
+            />
+            <path
+              d="m410.103 357.477c-6.363-5.301-15.822-4.442-21.126 1.921l-25.317 30.381-5.743-11.486c-3.705-7.41-12.715-10.415-20.125-6.708-7.41 3.704-10.413 12.715-6.708 20.124l16 32c2.264 4.528 6.659 7.608 11.687 8.192.579.066 1.156.1 1.731.1 4.421 0 8.654-1.956 11.522-5.397l40-48c5.303-6.366 4.443-15.824-1.921-21.127z"
+            />
+            <path
+              d="m255.5 175h16c8.284 0 15-6.716 15-15s-6.716-15-15-15h-16c-8.284 0-15 6.716-15 15s6.716 15 15 15z"
+            />
+            <path
+              d="m286.5 240c0-8.284-6.716-15-15-15h-16c-8.284 0-15 6.716-15 15s6.716 15 15 15h16c8.284 0 15-6.716 15-15z"
+            />
+          </g>
+        </svg>
+        <div class="flex flex-col">
+          <div class="text-xs uppercase font-light text-gray-700">Examenes</div>
+          <div class="text-xl font-bold">{{ exams.length }}</div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="widget w-full p-4 rounded-lg bg-white border border-gray-300 dark:bg-gray-900 dark:border-gray-800"
+    >
+      <div class="flex flex-row items-center justify-between">
+        <svg
+          height="30"
+          fill="green"
+          viewBox="0 0 512 512"
+          width="30"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m369.164062 174.769531c7.8125 7.8125 7.8125 20.476563 0 28.285157l-134.171874 134.175781c-7.8125 7.808593-20.472657 7.808593-28.285157 0l-63.871093-63.875c-7.8125-7.808594-7.8125-20.472657 0-28.28125 7.808593-7.8125 20.472656-7.8125 28.28125 0l49.730468 49.730469 120.03125-120.035157c7.8125-7.808593 20.476563-7.808593 28.285156 0zm142.835938 81.230469c0 141.503906-114.515625 256-256 256-141.503906 0-256-114.515625-256-256 0-141.503906 114.515625-256 256-256 141.503906 0 256 114.515625 256 256zm-40 0c0-119.394531-96.621094-216-216-216-119.394531 0-216 96.621094-216 216 0 119.394531 96.621094 216 216 216 119.394531 0 216-96.621094 216-216zm0 0"
+          />
+        </svg>
+        <div class="flex flex-col">
+          <div class="text-xs uppercase font-light text-gray-700">
+            Aprobados
+          </div>
+          <div class="text-xl font-bold">{{ passedExams }}</div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="widget w-full p-4 rounded-lg bg-white border border-gray-300 dark:bg-gray-900 dark:border-gray-800"
+    >
+      <div class="flex flex-row items-center justify-between">
+        <svg
+          height="30"
+          fill="red"
+          viewBox="0 0 512 512"
+          width="30"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m256 512c-141.160156 0-256-114.839844-256-256s114.839844-256 256-256 256 114.839844 256 256-114.839844 256-256 256zm0-475.429688c-120.992188 0-219.429688 98.4375-219.429688 219.429688s98.4375 219.429688 219.429688 219.429688 219.429688-98.4375 219.429688-219.429688-98.4375-219.429688-219.429688-219.429688zm0 0"
+          />
+          <path
+            d="m347.429688 365.714844c-4.679688 0-9.359376-1.785156-12.929688-5.359375l-182.855469-182.855469c-7.144531-7.144531-7.144531-18.714844 0-25.855469 7.140625-7.140625 18.714844-7.144531 25.855469 0l182.855469 182.855469c7.144531 7.144531 7.144531 18.714844 0 25.855469-3.570313 3.574219-8.246094 5.359375-12.925781 5.359375zm0 0"
+          />
+          <path
+            d="m164.570312 365.714844c-4.679687 0-9.355468-1.785156-12.925781-5.359375-7.144531-7.140625-7.144531-18.714844 0-25.855469l182.855469-182.855469c7.144531-7.144531 18.714844-7.144531 25.855469 0 7.140625 7.140625 7.144531 18.714844 0 25.855469l-182.855469 182.855469c-3.570312 3.574219-8.25 5.359375-12.929688 5.359375zm0 0"
+          />
+        </svg>
+        <div class="flex flex-col">
+          <div class="text-xs uppercase font-light text-gray-700">
+            Suspendidos
+          </div>
+          <div class="text-xl font-bold">{{ failedExams }}</div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="widget w-full p-4 rounded-lg bg-white border border-gray-300 dark:bg-gray-900 dark:border-gray-800"
+    >
+      <div class="flex flex-row items-center justify-between">
+        <svg
+          id="_x31_"
+          enable-background="new 0 0 24 24"
+          height="30"
+          viewBox="0 0 24 24"
+          width="30"
+          fill="orange"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <g>
+              <path
+                d="m16.635 20c-.083 0-.167-.021-.242-.062l-4.393-2.429-4.394 2.429c-.167.094-.374.082-.53-.029-.156-.11-.236-.3-.206-.489l.845-5.178-3.574-3.663c-.131-.134-.176-.33-.116-.508s.213-.307.398-.335l4.919-.752 2.204-4.696c.165-.351.74-.352.905 0l2.205 4.696 4.918.752c.185.028.339.158.398.335s.015.374-.116.508l-3.574 3.663.845 5.178c.031.189-.049.379-.206.489-.084.06-.185.091-.286.091zm-4.635-3.562c.083 0 .167.021.242.062l3.734 2.064-.72-4.411c-.025-.157.025-.316.136-.43l3.07-3.147-4.22-.645c-.165-.025-.306-.131-.377-.282l-1.865-3.972-1.865 3.973c-.071.151-.212.257-.377.282l-4.221.645 3.07 3.147c.111.114.161.273.136.43l-.72 4.411 3.734-2.064c.076-.043.16-.063.243-.063z"
+              />
+            </g>
+          </g>
+          <g>
+            <g>
+              <path
+                d="m12 24c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-23c-6.065 0-11 4.935-11 11s4.935 11 11 11 11-4.935 11-11-4.935-11-11-11z"
+              />
+            </g>
+          </g>
+        </svg>
+        <div class="flex flex-col">
+          <div class="text-xs uppercase font-light text-gray-700">
+            Nota media
+          </div>
+          <div class="text-xl font-bold" *ngIf="averageGrade">
+            {{ averageGrade }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Descripcion de los examenes -->
+  <div class="mb-10">
+    <p class="text-xl">Total de exámenes</p>
+    <div class="mat-elevation-z8 mt-8 w-full">
+      <table mat-table [dataSource]="exams" class="w-full">
+        <!-- Exam column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let row" class="text-gray-500">
+            {{ row.id }}
+          </td>
+        </ng-container>
+        <!-- Name column -->
+        <ng-container matColumnDef="subject">
+          <th mat-header-cell *matHeaderCellDef>Asignatura</th>
+          <td mat-cell *matCellDef="let row">{{ row.subject }}</td>
+        </ng-container>
+        <!-- Date column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Fecha</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.date | date: "dd/MM/yy, HH:mm 'h'" }}
+          </td>
+        </ng-container>
+        <!-- Note column -->
+        <ng-container matColumnDef="qualification">
+          <th mat-header-cell *matHeaderCellDef>Nota</th>
+          <td mat-cell *matCellDef="let row">
+            <span
+              *ngIf="row.qualification >= 5"
+              class="text-green-700 font-semibold"
+              >{{ row.qualification }}</span
+            >
+            <span
+              *ngIf="row.qualification < 5"
+              class="text-red-700 font-semibold"
+              >{{ row.qualification }}</span
+            >
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToExams"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToExams"></tr>
+      </table>
+    </div>
+  </div>
+</div>

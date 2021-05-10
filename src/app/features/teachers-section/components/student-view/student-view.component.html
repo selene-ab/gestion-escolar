@@ -1,0 +1,33 @@
+<div>
+  <div *ngIf="studentInfo" class="flex flex-row gap-8 mb-6">
+    <p class="text-lg md:text-2xl">
+      {{ studentInfo.first_name }} {{ studentInfo.last_name }}
+    </p>
+    <div>
+      <button mat-raised-button color="accent" (click)="openDialog()">
+        Borrar alumno
+      </button>
+    </div>
+  </div>
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="mr-2">portrait</mat-icon> Ficha
+      </ng-template>
+      <app-student-info [student]="studentInfo"></app-student-info>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="mr-2">text_snippet</mat-icon> Exámenes
+      </ng-template>
+      <app-student-view-exams [student]="studentInfo"></app-student-view-exams>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label
+        ><mat-icon class="mr-2">rule</mat-icon> Tareas</ng-template
+      >
+      <app-student-view-tasks [student]="studentInfo"></app-student-view-tasks>
+    </mat-tab>
+  </mat-tab-group>
+</div>

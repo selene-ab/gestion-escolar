@@ -1,0 +1,43 @@
+<form [formGroup]="createClassroomForm" class="mx-10 my-10">
+  <div class="grid grid-cols-1">
+    <p class="font-medium text-base underline">Formulario para crear clases:</p>
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Nombre clase</mat-label>
+      <input matInput type="tel" formControlName="name" />
+    </mat-form-field>
+  </div>
+  <div class="grid grid-cols-1 md: grid-cols-2 gap-4">
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Nombre profesor</mat-label>
+      <input matInput type="text" formControlName="teacher" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" formControlName="email" />
+    </mat-form-field>
+  </div>
+
+  <p></p>
+  <button
+    mat-raised-button
+    type="button"
+    color="accent"
+    (click)="createClassroom()"
+    [disabled]="!createClassroomForm.valid"
+  >
+    Crear
+  </button>
+</form>
+
+<div
+  *ngIf="success"
+  class="bg-green-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto w-full"
+>
+  <svg viewBox="0 0 24 24" class="text-green-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+    <path
+      fill="currentColor"
+      d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+    ></path>
+  </svg>
+  <span class="text-green-800"> Clase creada </span>
+</div>

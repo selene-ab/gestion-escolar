@@ -1,0 +1,27 @@
+<div class="md:mx-10 md:my-10">
+  <p class="text-xl font-medium">Clases actuales</p>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-y-8 md:gap-x-24 md:mr-10"
+  >
+    <mat-card *ngFor="let classroom of classrooms">
+      <div class="flex flex-row justify-between">
+        <div>
+          <p class="text-lg font-base underline">{{ classroom.name }}</p>
+          <p class="font-light text-gray-700">Tutor: {{ classroom.teacher }}</p>
+          <p class="font-light text-gray-700">
+            Nº de estudiantes: {{ classroom.students }}
+          </p>
+        </div>
+        <div class="flex items-center mr-4">
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="openDialog(classroom.id, classroom.name)"
+          >
+            Borrar
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

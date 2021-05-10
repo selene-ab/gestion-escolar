@@ -1,0 +1,68 @@
+<form class="lg:mx-10 my-10" [formGroup]="tasksForm">
+  <p class="font-medium text-base underline">Formulario para crear tareas:</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Alumno</mat-label>
+      <mat-select formControlName="student">
+        <mat-option *ngFor="let student of students" [value]="student.id"
+          >{{ student.first_name }} {{ student.last_name }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Asignatura</mat-label>
+      <mat-select formControlName="subject">
+        <mat-option *ngFor="let subject of subjects" [value]="subject.id"
+          >{{ subject.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-label>Nombre de la tarea</mat-label>
+      <input matInput type="text" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Periodo de entrega</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input
+          matStartDate
+          placeholder="Inicio"
+          formControlName="start_period"
+        />
+        <input matEndDate placeholder="Fin" formControlName="end_period" />
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </div>
+  <div class="grid grid-cols-1 mb-4">
+    <angular-editor
+      formControlName="description"
+      [config]="editorConfig"
+    ></angular-editor>
+  </div>
+  <button
+    mat-raised-button
+    color="accent"
+    type="button"
+    [disabled]="!tasksForm.valid"
+    (click)="saveTask()"
+  >
+    Guardar
+  </button>
+</form>
+
+<div
+  *ngIf="success"
+  class="bg-green-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto w-full"
+>
+  <svg viewBox="0 0 24 24" class="text-green-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+    <path
+      fill="currentColor"
+      d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+    ></path>
+  </svg>
+  <span class="text-green-800"> Tarea creada </span>
+</div>

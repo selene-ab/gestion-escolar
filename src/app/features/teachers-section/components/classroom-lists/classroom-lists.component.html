@@ -1,0 +1,67 @@
+<div class="pb-20">
+  <p class="font-bold py-4 text-lg lg:text-xl">Listados por clases:</p>
+  <mat-form-field appearance="outline" color="accent">
+    <mat-label>Selecciona una clase</mat-label>
+    <mat-select placeholder="selecciona clase">
+      <mat-option
+        *ngFor="let classroom of classroomInfo"
+        [value]="classroom.id"
+        (click)="viewStudentsByClassroom(classroom.id)"
+        >{{ classroom.name }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8 mt-6" *ngIf="classroomList.length">
+    <table mat-table [dataSource]="listPerPage">
+      <!-- id column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef class="text-pink-500 lg:text-sm">
+          ID
+        </th>
+        <td mat-cell *matCellDef="let row" class="text-gray-500">
+          {{ row.id }}
+        </td>
+      </ng-container>
+
+      <!-- name column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef class="text-pink-500 lg:text-sm">
+          Nombre
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let row"
+          [routerLink]="['/alumno/' + row.id]"
+          class="cursor-pointer"
+        >
+          {{ row.first_name }}
+        </td>
+      </ng-container>
+      <!-- surnames column -->
+      <ng-container matColumnDef="apellido">
+        <th mat-header-cell *matHeaderCellDef class="text-pink-500 lg:text-sm">
+          Apellido
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.last_name }}</td>
+      </ng-container>
+
+      <!-- teacher column -->
+      <ng-container matColumnDef="profesor">
+        <th mat-header-cell *matHeaderCellDef class="text-pink-500 lg:text-sm">
+          Profesor
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.teacher_name }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToClassrooms"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToClassrooms"></tr>
+    </table>
+    <mat-paginator
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10]"
+      [length]="classroomList.length"
+      (page)="paginatorEvent($event)"
+    ></mat-paginator>
+  </div>
+</div>
