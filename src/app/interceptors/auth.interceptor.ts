@@ -27,18 +27,5 @@ export class AuthInterceptor implements HttpInterceptor {
       });
     }
     return next.handle(request);
-
-    // redirigir al usuario a la página de login cuando el token haya expirado o no tenga un token válido:
-    //  return next.handle(request).pipe(
-    //   catchError((err: HttpErrorResponse) => {
-
-    //     if (err.status === 401) {
-    //       this.router.navigateByUrl('/login');
-    //     }
-
-    //     return throwError( err );
-
-    //   })
-    // );
   }
 }

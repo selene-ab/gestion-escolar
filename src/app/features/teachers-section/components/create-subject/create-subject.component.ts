@@ -18,6 +18,12 @@ export class CreateSubjectComponent implements OnInit {
     this.initForm();
   }
 
+  initForm() {
+    this.subjectForm = new FormGroup({
+      name: new FormControl("", [Validators.required]),
+    });
+  }
+
   createSubject() {
     let json: CreateSubject = {
       name: this.subjectForm.get("name").value,
@@ -33,12 +39,6 @@ export class CreateSubjectComponent implements OnInit {
 
         this.subjectForm.reset();
       }
-    });
-  }
-
-  initForm() {
-    this.subjectForm = new FormGroup({
-      name: new FormControl("", [Validators.required]),
     });
   }
 }

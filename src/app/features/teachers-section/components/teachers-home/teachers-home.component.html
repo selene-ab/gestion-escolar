@@ -3,13 +3,37 @@
     <div class="grid grid-cols-12">
       <!-- Barra navegacion -->
       <div
-        class="col-span-12 w-full pb-8 justify-center flex space-x-4 border-b border-solid lg:space-x-0 lg:space-y-4 lg:flex-col lg:col-span-2 lg:justify-start bg-white"
+        class="
+          col-span-12
+          w-full
+          pb-8
+          justify-center
+          flex
+          space-x-4
+          border-b border-solid
+          lg:space-x-0 lg:space-y-4
+          lg:flex-col
+          lg:col-span-2
+          lg:justify-start
+          bg-white
+        "
       >
         <!-- Barra navegacion lateral para pantallas grandes -->
         <div class="hidden lg:block">
           <a
             *ngFor="let item of menuItems"
-            class="flex items-center mt-5 py-2 px-8 text-gray-600 border-r-4 border-white hover:bg-gray-200 hover:text-gray-700 hover:border-gray-700"
+            class="
+              flex
+              items-center
+              mt-5
+              py-2
+              px-8
+              text-gray-600
+              border-r-4 border-white
+              hover:bg-gray-200
+              hover:text-gray-700
+              hover:border-gray-700
+            "
             [routerLink]="[item.path]"
           >
             <svg
@@ -213,7 +237,7 @@
             <span class="mx-4 font-medium">{{ item.name }}</span></a
           >
         </div>
-        <!-- Barra navegacion arriba para moviles -->
+        <!-- Barra navegacion para pantallas pequeñas -->
         <div class="block lg:hidden w-full">
           <div class="my-4 ml-4">
             <button (click)="toggleMenu()">
@@ -277,7 +301,17 @@
           <div *ngIf="menuOpen">
             <div
               *ngFor="let item of menuItems"
-              class="p-2 py-3 text-gray-600 border-r-4 border-white hover:bg-gray-200 hover:text-gray-700 hover:border-gray-700 mr-4 ml-4"
+              class="
+                p-2
+                py-3
+                text-gray-600
+                border-r-4 border-white
+                hover:bg-gray-200
+                hover:text-gray-700
+                hover:border-gray-700
+                mr-4
+                ml-4
+              "
             >
               <a
                 [routerLink]="[item.path]"
@@ -490,7 +524,14 @@
 
       <!-- Router outlet -->
       <div
-        class="col-span-12 lg:border-solid lg:border-l lg:border-black lg:border-opacity-25 h-full pb-12 lg:col-span-10 bg-white"
+        class="
+          col-span-12
+          lg:border-solid lg:border-l lg:border-black lg:border-opacity-25
+          h-full
+          pb-12
+          lg:col-span-10
+          bg-white
+        "
       >
         <div class="flex flex-col mt-6 mx-14">
           <router-outlet></router-outlet>

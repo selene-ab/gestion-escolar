@@ -2,7 +2,7 @@
   <mat-toolbar color="primary" class="navbar">
     <span [routerLink]="['']" class="cursor-pointer">Gestión Escolar</span>
     <mat-icon aria-hidden="false">school</mat-icon>
-    <!-- Div para menu a partir de lg -->
+    <!-- Menú a partir de lg -->
     <div class="hidden lg:block">
       <!-- Link a pagina principal -->
       <button
@@ -21,12 +21,12 @@
       >
         Acceso profesores
       </button>
-      <!-- Link a area personal -->
+      <!-- Link a área personal -->
       <button [routerLink]="['area-personal']" mat-flat-button color="primary">
         Area personal
       </button>
     </div>
-    <!-- Div para inicio de sesion en sm -->
+    <!-- Inicio de sesion en pantallas pequeñas-->
     <div class="lg:hidden ml-6 md:ml-8" *ngIf="!isLogged">
       <button
         class="flex flex-row items-center"
@@ -136,12 +136,12 @@
         </svg>
       </button>
     </div>
-    <!-- Div para cierre de sesion en sm -->
+    <!-- Cierre de sesion en pantallas pequeñas -->
     <div
       class="lg:hidden ml-6 md:ml-8 flex flex-row gap-2 md:gap-4 items-center"
       *ngIf="isLogged"
     >
-      <!-- Nombre usuario -->
+      <!-- Nombre de usuario -->
       <div class="text-sm md:text-base" *ngIf="user">
         {{ user.first_name }} {{ user.last_name }}
       </div>
@@ -238,7 +238,7 @@
     </div>
 
     <span class="spacer"></span>
-    <!-- Div para inicio de sesion a partir de lg -->
+    <!-- Inicio de sesion a partir de lg -->
     <div class="mr-6" *ngIf="!isLogged">
       <button
         [routerLink]="['iniciar-sesion']"
@@ -349,12 +349,12 @@
       </button>
     </div>
 
-    <!-- Div para cierre de sesion a partir de lg -->
+    <!-- Cierre de sesion a partir de lg -->
     <div
       class="mr-6 hidden lg:flex flex-row gap-4 items-center"
       *ngIf="isLogged"
     >
-      <!-- Nombre usuario -->
+      <!-- Nombre de usuario -->
       <div class="text-lg" *ngIf="user">
         {{ user.first_name }} {{ user.last_name }}
       </div>
@@ -451,7 +451,7 @@
       </button>
     </div>
 
-    <!-- Boton de abrir menu del movil -->
+    <!-- Boton de abrir menu en pantallas pequeñas -->
     <button class="lg:hidden block" (click)="toggleMenu()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -514,25 +514,61 @@
       </svg>
     </button>
   </mat-toolbar>
-  <!-- Menu en movil -->
+  <!-- Menú en pantallas pequeñas -->
   <div *ngIf="menuOpen" class="w-full lg:hidden block mb-6">
-    <!-- Link pagina principal -->
+    <!-- Link a página principal -->
     <div
-      class="p-2 py-3 flex flex-col items-end text-gray-600 border-r-4 border-white hover:bg-gray-200 hover:text-gray-700 hover:border-gray-700 mr-4 ml-4"
+      class="
+        p-2
+        py-3
+        flex flex-col
+        items-end
+        text-gray-600
+        border-r-4 border-white
+        hover:bg-gray-200
+        hover:text-gray-700
+        hover:border-gray-700
+        mr-4
+        ml-4
+      "
     >
       <a [routerLink]="['']" (click)="toggleMenu()"> Página principal </a>
     </div>
-    <!-- Link area de profesores -->
+    <!-- Link área de profesores -->
     <div
-      class="p-2 flex flex-col items-end py-3 text-gray-600 border-r-4 border-white hover:bg-gray-200 hover:text-gray-700 hover:border-gray-700 mr-4 ml-4"
+      class="
+        p-2
+        flex flex-col
+        items-end
+        py-3
+        text-gray-600
+        border-r-4 border-white
+        hover:bg-gray-200
+        hover:text-gray-700
+        hover:border-gray-700
+        mr-4
+        ml-4
+      "
     >
       <a [routerLink]="['profesores/perfil']" (click)="toggleMenu()">
         Acceso profesores
       </a>
     </div>
-    <!-- Link area personal alumnos -->
+    <!-- Link área personal alumnos -->
     <div
-      class="p-2 py-3 flex flex-col items-end text-gray-600 border-r-4 border-white hover:bg-gray-200 hover:text-gray-700 hover:border-gray-700 mr-4 ml-4"
+      class="
+        p-2
+        py-3
+        flex flex-col
+        items-end
+        text-gray-600
+        border-r-4 border-white
+        hover:bg-gray-200
+        hover:text-gray-700
+        hover:border-gray-700
+        mr-4
+        ml-4
+      "
     >
       <a [routerLink]="['area-personal']" (click)="toggleMenu()">
         Area personal

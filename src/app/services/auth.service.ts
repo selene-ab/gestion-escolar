@@ -71,7 +71,6 @@ export class AuthService {
   }
 
   // Recuperar usuario guardado en el navegador
-
   getUserInfo() {
     return JSON.parse(localStorage.getItem("user"));
   }
@@ -86,6 +85,7 @@ export class AuthService {
     let user = this.getUserInfo();
     return user.role == "teacher" ? true : false;
   }
+
   // Comprobar si el usuario tiene el rol de alumno
   isStudent() {
     let user = this.getUserInfo();

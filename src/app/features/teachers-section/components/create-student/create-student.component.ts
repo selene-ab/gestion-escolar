@@ -115,9 +115,7 @@ export class CreateStudentComponent implements OnInit {
   }
 
   copyToClipboard() {
-    // Se copia el texto del input al portapapeles
     this.clipboard.copy(this.createStudentForm.get("random").value);
-    // Se muestra un snackbar durante 2 segundos en la parte inferior
     this.snackBar.open("¡Texto copiado al portapapeles!", null, {
       duration: 2000,
       panelClass: "snackbar",
