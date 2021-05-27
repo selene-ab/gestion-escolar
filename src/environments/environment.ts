@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // urlStudents: "http://192.168.1.140:3000/",
-  urlStudents: "http://mper.mooo.com:3000/",
+  urlStudents: "https://gestion-escolar-api.herokuapp.com/",
 };
 
 /*
